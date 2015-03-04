@@ -17,7 +17,7 @@ fibonacci:
 
 .loop:
 	
-	add r6, r4, r3	@R6 = R4 + R3 sum=result+previous 
+	adds r6, r4, r3	@R6 = R4 + R3 sum=result+previous 
 	mov r3, r4 	@previous = result
 	mov r4, r6 	@result = sum
 	subs r0, #1 	@i++
