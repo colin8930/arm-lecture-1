@@ -1,0 +1,18 @@
+target remote: 1234
+b 11
+c
+s
+display/x $cpsr
+display/d $r6
+b 21
+SET $stop=0
+SET $i=1
+c
+WHILE(!$stop)
+	if $cpsr&0x10000000
+	SET $stop=1
+	printf "error at input = \"%d\"",$i
+	end
+	SET $i=$i+1
+	c
+end
