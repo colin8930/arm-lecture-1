@@ -1,0 +1,15 @@
+target remote: 1234
+SET $i=1
+b 12
+b 16
+c
+c
+WHILE($i<48)
+	set logging on
+	p t
+	set logging off
+	j fibseq.c: 12	
+	SET $i=$i+1
+	SET VAR number = $i	
+	c
+end
