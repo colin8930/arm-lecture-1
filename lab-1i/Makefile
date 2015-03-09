@@ -1,5 +1,5 @@
 CC	= arm-linux-gnueabihf-gcc
-CFLAGS	= -O1 -Wall -g
+CFLAGS	= -O0 -Wall -g
 LDFLAGS = -fno-stack-protector
 
 objects	= fibseq.o fib.o
@@ -26,5 +26,5 @@ clean:
 QEMU_CMD = qemu-arm -g 1234 -L /usr/arm-linux-gnueabihf ./fibseq &
 CMD = yes 9 | $(call QEMU_CMD) && sleep 1
 qemu: fibseq
-	yes 50 | $(call QEMU_CMD)
-	arm-none-eabi-gdb -x gdbscript fibseq
+	yes 1 | $(call QEMU_CMD)
+	arm-none-eabi-gdb -x gdbscript2 fibseq
